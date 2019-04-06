@@ -21,8 +21,8 @@ class MyUpload
             $cosClient = new Client(array('region' => env('COS_REGION'),
             'credentials'=> array(
                 'appId' => env('COS_APPID'),
-                'secretId' => env('COS_KEY'),
-                'secretKey' => env('COS_SECRET'))));
+                'secretId' => env('COS_ID'),
+                'secretKey' => env('COS_KEY'))));
 
             $result = $cosClient->putObject(array(
                 'Bucket' => env('COS_BUCKET'),

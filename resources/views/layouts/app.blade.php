@@ -19,7 +19,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>@yield('title', setting('web_name', 'Laravel'))</title>
+    <title>@yield('title', setting('web_name', 'keepThinking'))</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -58,7 +58,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         <li><a href="{{ route('articles.list') }}">全部文章</a></li>
-                        <li><a href="https://github.com/SadCreeper/laravel-blog-v2" target="_blank"><img src="/icons/github.png" alt="" style="width:18px;margin-bottom:3px"></a></li>
+                        <li><a href="https://github.com/Caisen1988/laravel-react-blog" target="_blank"><img src="/icons/github.png" alt="" style="width:18px;margin-bottom:3px"></a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -110,8 +110,7 @@
         @yield('content')
 
         <footer class="z-footer">
-            <p class="z-text">DESIGN & FRONT-END CODE BY</p>
-            <p class="z-text-big">sad creeper</p>
+            <p class="z-text">联系邮箱：835596913@qq.com</p>
         </footer>
     </div>
 
