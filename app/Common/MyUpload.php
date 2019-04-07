@@ -14,7 +14,6 @@ class MyUpload
     static public function uploadFile($file)
     {
         $fileName = md5_file($file).'.'.$file->extension();
-
         $file_disk = Setting::where('key', 'file_disk')->value('value');
         if ($file_disk == 'cos') {
             //使用：腾讯云静态存储 COS
@@ -29,8 +28,7 @@ class MyUpload
                 'Key' => $fileName,
                 'Body' => file_get_contents($file),
                 'ServerSideEncryption' => 'AES256'));
-
-            //return $result['ObjectURL']; 此项可生成 COS 完整地址
+            return $result['ObjectURL']; //此项可生成 COS 完整地址
         }else {
             //使用：默认 Storage local 存储
             $file->storeAs('public/images', $fileName);

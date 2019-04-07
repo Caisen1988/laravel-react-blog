@@ -179,7 +179,11 @@ class ArticleController extends Controller
     */
     public function uploadFileApi(Request $request)
     {
-        return MyUpload::uploadFile($request->file);
+        if ($request->hasFile('file') && $request->file->isValid()) {
+            return MyUpload::uploadFile($request->file('file'));
+        }else{
+            echo "upload fail";
+        }
     }
     /**
     * 导入其他数据库文章

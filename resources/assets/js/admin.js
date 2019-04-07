@@ -31,7 +31,7 @@ window.apiURL = 'admin-api/';
 //根据存储盘生成图片地址
 window.imageURL = function(url){
     if (file_disk == 'cos') {
-        return 'http://images-1253193383.cosbj.myqcloud.com/' + url;
+        return url;
     }else {
         return location.origin + '/storage/images/' + url;
     }

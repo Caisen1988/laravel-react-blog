@@ -12,7 +12,7 @@
 
         $file_disk = App\Setting::where('key', 'file_disk')->value('value');
         if ($file_disk == 'cos') {
-            return 'http://images-1253193383.cosbj.myqcloud.com/' . $url;
+            return $url;
         }else {
             return '/storage/images/' . $url;
         }
