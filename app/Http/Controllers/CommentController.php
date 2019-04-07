@@ -51,7 +51,6 @@ class CommentController extends Controller
 
         //发送邮件
         if ($request->parent_id) {
-            echo 888;
             $commentTarget = Comment::findOrFail($request->target_id);
             $url = url("/articles/{$comment->article->id}#comment{$comment->id}");
             if (setting('reply_email')) {
@@ -59,7 +58,6 @@ class CommentController extends Controller
                     Mail::to($commentTarget->email)
                         ->send(new CommentRemind($commentTarget->content, $comment, $url));
                 }catch (\Exception $e) {
-                    var_dump($e);
                 }
             }
         }else {
@@ -70,10 +68,8 @@ class CommentController extends Controller
                     Mail::to(User::findOrFail(1))
                         ->send(new CommentRemind($comment->article->title, $comment, $url));
                 }catch (\Exception $e) {
-                    var_dump($e);
                 }
             }
-            exit;
         }
         return back()->with('message', '留言成功！');
     }
